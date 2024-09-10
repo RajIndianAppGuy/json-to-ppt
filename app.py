@@ -4,20 +4,15 @@ from io import BytesIO
 from flask_cors import CORS 
 import requests
 import json
-import openai
 import threading
 import hashlib
 from supabase import create_client, Client
 import os
 import time
-from dotenv import load_dotenv
 from datetime import datetime
 
-load_dotenv()
-
-openai.api_key = os.getenv('api_key')
-supabase_url = os.getenv('supabase_url')
-supabase_key = os.getenv('supabase_key')
+supabase_url = 'https://nwsyclpwsgqlpdwfmzku.supabase.co'
+supabase_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53c3ljbHB3c2dxbHBkd2Ztemt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQ3NzYyMzEsImV4cCI6MjA0MDM1MjIzMX0.G88AjKBuUxGEsDeYMd10Ao1OylLW8op9WJlBTi4kJQ0'
 supabase: Client = create_client(supabase_url, supabase_key)
 now = datetime.now()
 
